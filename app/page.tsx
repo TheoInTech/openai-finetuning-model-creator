@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex w-full h-full flex-col gap-8 p-16 m-16 max-w-[50rem] bg-muted rounded-2xl shadow-md">
       <h1 className="text-4xl font-bold self-center">
-        OpenAI File-tuning Model Creator
+        OpenAI Fine-Tuning Model Creator
       </h1>
       <p className="text-sm text-justify">
         <span className="font-bold">Disclaimer</span>: We do not save anything

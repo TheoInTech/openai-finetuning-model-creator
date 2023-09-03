@@ -1,6 +1,6 @@
-# OpenAI File-tuning Model Builder and Deployer
+# OpenAI Fine-Tuning Model Builder and Deployer
 
-![OpenAI File-tuning Model Builder and Deployer Screenshot](https://openai-finetuning-model-creator.vercel.app/screenshot.png)
+![OpenAI Fine-Tuning Model Builder and Deployer Screenshot](https://openai-finetuning-model-creator.vercel.app/screenshot.png)
 
 Welcome to the AI Fine-Tuning Builder! This tool is designed for people who want to customize their own AI models without dealing with complicated code. Everything you need can be done right from this user-friendly web interface.
 

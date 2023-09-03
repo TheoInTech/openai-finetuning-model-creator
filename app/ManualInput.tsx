@@ -112,7 +112,7 @@ const ManualInput = () => {
       formData.append("suffix", trimSuffix);
       formData.append("file", jsonl, "data.jsonl");
 
-      const response = await axios.post("/api/file-tuning/upload", formData, {
+      const response = await axios.post("/api/fine-tuning/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -146,7 +146,7 @@ const ManualInput = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/file-tuning/job", {
+      const response = await axios.post("/api/fine-tuning/job", {
         apiKey: form.getValues("apiKey"),
         fileId: fileUploaded?.id,
         model: form.getValues("model"),
@@ -200,7 +200,7 @@ const ManualInput = () => {
       }
 
       const response = await axios.post(
-        "/api/file-tuning/check-upload-status",
+        "/api/fine-tuning/check-upload-status",
         {
           apiKey,
           fileId: fileUploaded?.id,
@@ -243,7 +243,7 @@ const ManualInput = () => {
       }
 
       const response = await axios.post(
-        "/api/file-tuning/check-deploy-status",
+        "/api/fine-tuning/check-deploy-status",
         {
           apiKey,
           finetuningId: finetuningDeployed?.id,
