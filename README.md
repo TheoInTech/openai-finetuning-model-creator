@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OpenAI File-tuning Model Builder and Deployer
 
-## Getting Started
+![OpenAI File-tuning Model Builder and Deployer Screenshot](https://openai-finetuning-model-creator.vercel.app/screenshot.png)
 
-First, run the development server:
+Welcome to the AI Fine-Tuning Builder! This tool is designed for people who want to customize their own AI models without dealing with complicated code. Everything you need can be done right from this user-friendly web interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 🌟 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔒 Safe and Easy-to-Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- You only need to provide your API key once, and we'll take care of the rest.
+- Note that we don't save any of your form data or API key on a database. You can check out the codebase of this opensource project above.
+- Everything is sent over a secure https connection.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 📤 File Upload or Manual Entry
 
-## Learn More
+- You can enter multiple prompts or dialogues to fine-tune your AI.
+- (coming soon) You can either upload your data in a simple CSV file format or type it in yourself.
 
-To learn more about Next.js, take a look at the following resources:
+### 🚀 Quick Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Our tool will prepare your data and send it to OpenAI for fine-tuning.
+- You'll get a quick status update, letting you know if everything went well.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🛠 How To Use
 
-## Deploy on Vercel
+1. **Fill in the Details**: Put in your API key, choose the AI model you want, and upload or type in your prompts for system context, user and assistant response. It's like creating a monologue of your desired response from a context and user input.
+2. **Click 'Upload File'**: This will upload the file or form to OpenAI's API for validation since they have strict formatting that we have to comply with.
+3. **Check 'Uploaded File Status'**: Hit refresh on the file uploaded box so you can check its status. Once it's "processed", you can start deploying it.
+4. **Click 'Deploy Model'**: This will start deploying your uploaded file to OpenAI and create a job for your fine-tuned model. This may take some time from a few minutes to a couple of hours.
+5. **Check 'Job Deployment Status'**: Hit refresh on the job deployment box so you can check its status. Check OpenAI's playground and see if your fine-tuned model is there already.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🙌 Support Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Found this tool helpful? You can [buy me a coffee](https://www.buymeacoffee.com/_theindiehacker) or visit my [website](https://theindiehackers.tech) to learn more about what I do!
+
+---
+
+Built with 💩 by [The Indie Hacker](https://theindiehackers.tech)
