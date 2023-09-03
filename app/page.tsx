@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/tabs";
 import Link from "next/link";
 import ManualInput from "./ManualInput";
 import UploadCsv from "./UploadCsv";
@@ -40,7 +40,9 @@ export default function Home() {
       >
         <TabsList className="bg-gray-200">
           <TabsTrigger value="manual">Manual Input</TabsTrigger>
-          <TabsTrigger value="upload">Upload CSV</TabsTrigger>
+          <TabsTrigger value="upload" disabled>
+            Upload CSV
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="manual">
           <ManualInput />

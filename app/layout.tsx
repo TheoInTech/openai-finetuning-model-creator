@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="w-full h-full min-h-screen flex flex-col items-center">
           {children}
+          <Toaster />
         </main>
       </body>
     </html>
