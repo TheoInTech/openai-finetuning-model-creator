@@ -285,6 +285,14 @@ const ManualInput = () => {
       if (fileUploadedFromLocalStorage) {
         setFileUploaded(JSON.parse(fileUploadedFromLocalStorage));
       }
+
+      const finetuningDeployedFromLocalStorage = secureLocalStorage.getItem(
+        "finetuning-deployed"
+      ) as string;
+
+      if (finetuningDeployedFromLocalStorage) {
+        setFinetuningDeployed(JSON.parse(finetuningDeployedFromLocalStorage));
+      }
     }
   }, []);
 
