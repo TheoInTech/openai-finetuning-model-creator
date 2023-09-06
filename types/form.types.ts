@@ -45,3 +45,7 @@ export interface FinetuningDeployedProps {
   };
   trained_tokens: number;
 }
+
+export enum Status {
+  PROCESSED = "processed",
+}

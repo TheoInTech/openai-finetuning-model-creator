@@ -21,6 +21,7 @@ import {
   FileUploadedProps,
   FinetuningDeployedProps,
   Models,
+  Status,
 } from "@/types/form.types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
@@ -211,7 +212,9 @@ const ManualInput = () => {
       if (response.status === 200) {
         toast({
           title: "Refreshed the upload status",
-          description: `Status: ${response.data.status}`,
+          description: `Status: ${response.data.status}. ${
+            response.data.status === Status.PROCESSED && "You may now deploy."
+          }`,
         });
 
         setFileUploaded(response.data);
@@ -491,8 +494,10 @@ const ManualInput = () => {
               <p>
                 <b>Size</b>: {fileUploaded.bytes} bytes
               </p>
-              <p className="capitalize">
-                <b>Status</b>: {fileUploaded.status}
+              <p>
+                <b>Status</b>: {fileUploaded.status.toLocaleUpperCase()}.{" "}
+                {fileUploaded.status === Status.PROCESSED &&
+                  "You may now deploy."}
               </p>
 
               <Button onClick={handleRefreshUploadStatus} disabled={isLoading}>
@@ -516,8 +521,8 @@ const ManualInput = () => {
                 <b>Fine-tuned Model Name</b>:{" "}
                 {finetuningDeployed?.fine_tuned_model ?? "Still processing."}
               </p>
-              <p className="capitalize">
-                <b>Status</b>: {finetuningDeployed?.status}
+              <p>
+                <b>Status</b>: {finetuningDeployed?.status?.toLocaleUpperCase()}
               </p>
               <p>
                 <b>Training File</b>: {finetuningDeployed?.training_file}
