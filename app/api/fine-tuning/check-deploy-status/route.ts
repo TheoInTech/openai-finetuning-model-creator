@@ -4,9 +4,9 @@ import { OpenAI } from "openai";
 export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
-  const { apiKey, fileId } = await req.json();
+  const { apiKey, finetuningId } = await req.json();
 
-  if (!fileId) {
+  if (!finetuningId) {
     return new NextResponse("All data are required", { status: 400 });
   }
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       apiKey,
     });
 
-    const response = await openai.fineTuning.jobs.retrieve(fileId);
+    const response = await openai.fineTuning.jobs.retrieve(finetuningId);
 
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
