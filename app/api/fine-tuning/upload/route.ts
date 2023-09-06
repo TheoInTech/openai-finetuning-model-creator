@@ -7,8 +7,6 @@ export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const apiKey = formData.get("apiKey") as string;
   const file = formData.get("file") as File;
-  const model = formData.get("model") as string;
-  const suffix = formData.get("suffix") as string;
 
   if (!formData) {
     return new NextResponse("Data is required", { status: 400 });

@@ -98,21 +98,22 @@ const ManualInput = () => {
     control: form.control,
   });
 
-  const uploadFile = async (values: z.infer<typeof formSchema>) => {
+  const handleUploadFile = async (
+    e: React.MouseEvent<HTMLButtonElement>,
+    values: z.infer<typeof formSchema>
+  ) => {
+    e.preventDefault();
     setIsLoading(true);
 
     try {
-      const { apiKey, model, suffix, promptItems } = values;
+      const { apiKey, promptItems } = values;
       const jsonl = convertFormDataToJSONL(promptItems);
 
-      const trimSuffix = suffix.trim();
       const formData = new FormData();
       formData.append("apiKey", apiKey);
-      formData.append("model", model);
-      formData.append("suffix", trimSuffix);
       formData.append("file", jsonl, "data.jsonl");
 
-      const response = await axios.post("/api/fine-tuning/upload", formData, {
+      const response = await axios.post(`/api/fine-tuning/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -146,7 +147,7 @@ const ManualInput = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("/api/fine-tuning/job", {
+      const response = await axios.post(`/api/fine-tuning/job`, {
         apiKey: form.getValues("apiKey"),
         fileId: fileUploaded?.id,
         model: form.getValues("model"),
@@ -200,7 +201,7 @@ const ManualInput = () => {
       }
 
       const response = await axios.post(
-        "/api/fine-tuning/check-upload-status",
+        `/api/fine-tuning/check-upload-status`,
         {
           apiKey,
           fileId: fileUploaded?.id,
@@ -243,7 +244,7 @@ const ManualInput = () => {
       }
 
       const response = await axios.post(
-        "/api/fine-tuning/check-deploy-status",
+        `/api/fine-tuning/check-deploy-status`,
         {
           apiKey,
           finetuningId: finetuningDeployed?.id,
@@ -387,7 +388,7 @@ const ManualInput = () => {
             return (
               <div key={item.id} className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="underline font-bold">Prompt # {index + 1}</h4>
+                  <h4 className="font-bold underline">Prompt # {index + 1}</h4>
                   {fields.length > 1 && (
                     <Button
                       variant={"destructive"}
@@ -445,14 +446,16 @@ const ManualInput = () => {
                 assistant: "",
               });
             }}
-            className="p-0 self-start"
+            className="self-start p-0"
           >
             <Plus className="mr-2" /> Add New Prompt Item
           </Button>
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <Button
               type="submit"
-              onClick={form.handleSubmit(uploadFile)}
+              onClick={(event) =>
+                form.handleSubmit((values) => handleUploadFile(event, values))()
+              }
               disabled={isLoading}
             >
               Upload File
@@ -475,8 +478,8 @@ const ManualInput = () => {
             {form?.formState?.errors?.promptItems?.root?.message}
           </FormMessage>
           {fileUploaded && (
-            <div className="p-4 rounded-2xl bg-primary-foreground flex flex-col gap-2 my-4 text-primary text-sm border border-primary/30">
-              <p className="font-bold underline underline-offset-2 text-lg">
+            <div className="flex flex-col gap-2 p-4 my-4 text-sm border rounded-2xl bg-primary-foreground text-primary border-primary/30">
+              <p className="text-lg font-bold underline underline-offset-2">
                 Recently uploaded file
               </p>
               <p>
@@ -499,8 +502,8 @@ const ManualInput = () => {
           )}
 
           {finetuningDeployed && (
-            <div className="p-4 rounded-2xl bg-primary-foreground flex flex-col gap-2 my-4 text-primary text-sm border border-primary/30">
-              <p className="font-bold underline underline-offset-2 text-lg">
+            <div className="flex flex-col gap-2 p-4 my-4 text-sm border rounded-2xl bg-primary-foreground text-primary border-primary/30">
+              <p className="text-lg font-bold underline underline-offset-2">
                 Recently deployed fine-tuning job
               </p>
               <p>
