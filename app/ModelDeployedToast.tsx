@@ -12,19 +12,17 @@ const ModelDeployedToast = () => {
       <p>
         If this tool helped you, please consider giving a{" "}
         <Link
-          href={
-            "https://github.com/theindiehacker/openai-finetuning-model-creator"
-          }
+          href={"https://github.com/theointech/openai-finetuning-model-creator"}
           target="_blank"
-          className="hover:underline hover:underline-offset-2 text-blue-500"
+          className="text-blue-500 hover:underline hover:underline-offset-2"
         >
           ⭐ on github
         </Link>{" "}
         or{" "}
         <Link
-          href={"https://www.buymeacoffee.com/_theindiehacker"}
+          href={"https://www.buymeacoffee.com/theointech"}
           target="_blank"
-          className="hover:underline hover:underline-offset-2 text-blue-500"
+          className="text-blue-500 hover:underline hover:underline-offset-2"
         >
           buy me a coffee ☕
         </Link>

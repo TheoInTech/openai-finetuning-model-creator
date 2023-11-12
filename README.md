@@ -32,8 +32,8 @@ Welcome to the AI Fine-Tuning Builder! This tool is designed for people who want
 
 ## 🙌 Support Me
 
-Found this tool helpful? You can [buy me a coffee](https://www.buymeacoffee.com/_theindiehacker) or visit my [website](https://theindiehackers.tech) to learn more about what I do!
+Found this tool helpful? You can [buy me a coffee](https://www.buymeacoffee.com/theointech) or visit my [website](https://theoin.tech) to learn more about what I do!
 
 ---
 
-Built with 💩 by [The Indie Hacker](https://theindiehackers.tech)
+Built with 💩 by [Theo in Tech](https://theoin.tech)
